@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catatan Keuangan Modern</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- CDN Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>💰 Catatan Keuangan</h1>
+
+  <div class="container">
+    <!-- Form tambah transaksi -->
+    <form id="transactionForm">
+      <input type="date" id="date" required>
+      <select id="type" required>
+        <option value="">Jenis</option>
+        <option value="Pemasukan">Pemasukan</option>
+        <option value="Pengeluaran">Pengeluaran</option>
+      </select>
+      <input type="number" id="amount" placeholder="Jumlah (Rp)" required>
+      <button type="submit">Tambah</button>
+    </form>
+
+    <!-- Filter -->
+    <div class="filters">
+      <select id="filterMonth">
+        <option value="">Semua Bulan</option>
+      </select>
+      <select id="filterType">
+        <option value="">Semua Jenis</option>
+        <option value="Pemasukan">Pemasukan</option>
+        <option value="Pengeluaran">Pengeluaran</option>
+      </select>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary">
+      <p>Pemasukan: <span id="income">Rp 0</span></p>
+      <p>Pengeluaran: <span id="expense">Rp 0</span></p>
+      <p>Saldo: <span id="balance">Rp 0</span></p>
+    </div>
+
+    <!-- Grafik -->
+    <div class="chart-container">
+      <canvas id="financeChart"></canvas>
+    </div>
+
+    <!-- Tabel -->
+    <table>
+      <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>Jenis</th>
+          <th>Jumlah</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="transactionTable"></tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
